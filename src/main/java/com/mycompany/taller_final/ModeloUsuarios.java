@@ -24,7 +24,7 @@ public class ModeloUsuarios extends AbstractTableModel {
 
     @Override
     public int getColumnCount() {
-        return 5;
+        return 3;
     }
 
     @Override
@@ -60,7 +60,8 @@ public class ModeloUsuarios extends AbstractTableModel {
         return true;
     }
     
-    public void setvalueAt(Object value, int fila, int columna){
+    @Override
+    public void setValueAt(Object value, int fila, int columna){
         usuarios aux=usuario.obtener(fila);
         switch(columna){
             case 0: aux.setIdentificacion((int)value);
@@ -68,7 +69,6 @@ public class ModeloUsuarios extends AbstractTableModel {
             case 1: aux.setNombre((String)value);
                     break;
             default: aux.setApellido((String)value);
-                    break;
         }
         fireTableCellUpdated(fila,columna);
     }
